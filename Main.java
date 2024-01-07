@@ -11,7 +11,9 @@ public class Main {
         while (true){
             System.out.println("1. List Buku");
             System.out.println("2. Buat buku");
-            System.out.println("3. Exit");
+            System.out.println("3. Cari By UID");
+            System.out.println("4. Delete By UID");
+            System.out.println("5. Exit");
             System.out.print("Masukkan input : ");
             int input = scanner.nextInt();
             if (input == 1){
@@ -25,7 +27,15 @@ public class Main {
                 String genre = scanner.next();
                 System.out.print("\n");
                 bookLogic.createBook(bookName, author, genre);
-            }else{
+            } else if (input == 3) {
+                System.out.print("Masukkan BookUID : ");
+                String uid = scanner.next();
+                bookLogic.getByUUID(uid);
+            } else if (input == 4) {
+                System.out.print("Masukkan BookUID : ");
+                String uid = scanner.next();
+                bookLogic.removeByUid(uid);
+            } else{
                 break;
             }
         }

@@ -29,4 +29,20 @@ public class BookLogic {
         }
         return "Book insert successfully";
     }
+
+    public String getByUUID(String uuid){
+        for (Book book : books) {
+            if (book.getUid().equals(uuid)){
+                System.out.println("Book UID : "+ book.getUid() + "\nBook Name : " + book.getBookName() + "\nAuthor : " + book.getAuthor() + "\nGenre : " + book.getGenre());
+            }
+        }
+        System.out.println("Menampilan buku dengan uid : " + uuid);
+        return "Menampilan buku dengan uid : " + uuid;
+    }
+
+    public String removeByUid(String uuid){
+        books.removeIf(book -> book.getUid().equals(uuid));
+
+        return "Berhasil";
+    }
 }
